@@ -25,37 +25,31 @@ beforeEach(() => {
   originalTodos = [
     {
       text: 'Christmas shopping',
-      
       complete: false,
       priority: 1,
     },
     {
       text: `make doctor's appointment`,
-      
       complete: true,
       priority: 2,
     },
     {
       text: 'binge watch The Office',
-      
       complete: false,
       priority: 2,
     },
     {
       text: 'research dinosaurs',
-      
       complete: false,
       priority: 1,
     },
     {
       text: 'fire Colin',
-      
       complete: true,
       priority: 2,
     },
     {
       text: 'start novel',
-      
       complete: true,
       priority: 1,
     },
@@ -271,7 +265,7 @@ describe('isHighPriority', () => {
 
 describe('names', () => {
   it(`returns an array of the given todos names`, () => {
-    expect(names(todos)).toBe([
+    expect(names(todos)).toEqual([
       'Christmas shopping',
       `make doctor's appointment`,
       'binge watch The Office',
@@ -289,7 +283,7 @@ describe('names', () => {
 
 describe('namesAndPriorities', () => {
   it(`returns an array of the string containing the given todos name and priority`, () => {
-    expect(namesAndPriorities(todos)).toBe([
+    expect(namesAndPriorities(todos)).toEqual([
       'Christmas shopping - Low',
       `make doctor's appointment - High`,
       'binge watch The Office - High',
