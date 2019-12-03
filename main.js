@@ -18,12 +18,16 @@ const map = function(arr, func) {
   return newArr;
 }
 
-const filter = function() {
-
+const filter = function(arr, func) {
+  const newArr =[];
+  arr.forEach(item => func(item) === true ? newArr.push(item) : '');
+  return newArr;
 }
 
-const twoPileSort = function() {
-  
+const twoPileSort = function(arr, func) {
+  const newArr = [];
+  arr.forEach(item => func(item) === true ? newArr.unshift(item) : newArr.push(item));
+  return newArr;
 }
 
 
@@ -32,24 +36,24 @@ const twoPileSort = function() {
  * HELPER FUNCTIONS *
  ********************/
 
-const getTodoName = function() {
-
+const getTodoName = function(todo) {
+  return todo.text;
 }
 
-const getCompleteness = function () {
-  
+const getCompleteness = function (todo) {
+  return todo.complete
 }
 
-const getPriority = function () {
-  
+const getPriority = function (todo) {
+  return todo.priority
 }
 
-const isComplete = function() {
-  
+const isComplete = function(todo) {
+  return todo.complete;
 }
 
-const isHighPriority = function() {
-  
+const isHighPriority = function(todo) {
+  return todo.priority === 2
 }
 
 
@@ -58,11 +62,13 @@ const isHighPriority = function() {
  * ITERATION FUNCTIONS *
  ***********************/
 
-const names = function() {
-
+const names = function(todo) {
+  newArr = [];
+  ;
+  return newArr;
 }
 
-const namesAndPriorities = function() {
+const namesAndPriorities = function(todo) {
   
 }
 
