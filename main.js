@@ -12,8 +12,10 @@ They'll also become easier later once you've written a few of the iteration func
 
 */
 
-const map = function() {
-
+const map = function(arr, func) {
+  const newArr = [];
+  arr.forEach(item => newArr.push(func(item)));
+  return newArr;
 }
 
 const filter = function() {
