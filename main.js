@@ -36,25 +36,15 @@ const twoPileSort = function(arr, func) {
  * HELPER FUNCTIONS *
  ********************/
 
-const getTodoName = function(todo) {
-  return todo.text;
-}
+const getTodoName = (todo => todo.text)
 
-const getCompleteness = function (todo) {
-  return todo.complete
-}
+const getCompleteness = (todo => todo.complete)
 
-const getPriority = function (todo) {
-  return todo.priority
-}
+const getPriority = (todo => todo.priority)
 
-const isComplete = function(todo) {
-  return todo.complete;
-}
+const isComplete = (todo => todo.complete)
 
-const isHighPriority = function(todo) {
-  return todo.priority === 2
-}
+const isHighPriority = (todo => todo.priority === 2)
 
 
 
@@ -62,50 +52,25 @@ const isHighPriority = function(todo) {
  * ITERATION FUNCTIONS *
  ***********************/
 
-const names = function(todo) {
-  newArr = [];
-  todo.forEach(item => newArr.push(item.text));
-  return newArr;
-}
+const names = todo => todo.map(getTodoName)
 
-const namesAndPriorities = function(todo) {
-  const newArr = [];
-  todo.forEach(item => 
-    isHighPriority(item) ? newArr.push(`${getTodoName(item)} - High`) : newArr.push(`${getTodoName(item)} - Low`));
-  return newArr;
-}
+const namesAndPriorities = todo => todo.map(item => isHighPriority(item) ? (`${getTodoName(item)} - High`) : (`${getTodoName(item)} - Low`))
 
-const justNotComplete = function(todo) {
-  const newArr = [];
-  todo.forEach(item => !isComplete(item) ? newArr.push(item) : '')
-  return newArr
-}
+const justNotComplete = todo => todo.filter(item => !isComplete(item))
 
-const justComplete = function(todo) {
-  const newArr = [];
-  todo.forEach(item => isComplete(item) ? newArr.push(item) : '')
-  return newArr
-}
+const justComplete = todo => todo.filter(item => isComplete(item))
 
-const priority2Only = function(todo) {
-  const newArr = [];
-  todo.forEach(item => isHighPriority(item) ? newArr.push(item) : '')
-  return newArr
-}
+const priority2Only = todo => todo.filter(item => isHighPriority(item))
 
-const priority1Only = function(todo) {
-  const newArr = [];
-  todo.forEach(item => !isHighPriority(item) ? newArr.push(item) : '')
-  return newArr
-}
+const priority1Only = todo => todo.filter(item => !isHighPriority(item))
 
-const notCompleteFirst = function(todo) {
+const notCompleteFirst = todo => {
   const newArr = [];
   todo.forEach(item => !isComplete(item) ? newArr.unshift(item) : newArr.push(item));
   return newArr;
 }
 
-const priority2First = function(todo) {
+const priority2First = todo => {
   const newArr = [];
   todo.forEach(item => isHighPriority(item) ? newArr.unshift(item) : newArr.push(item));
   return newArr;
